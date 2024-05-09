@@ -1,8 +1,7 @@
 {
-    "recommendations": [
-        "golang.go",
-        "premparihar.gotestexplorer",
-        "windmilleng.vscode-go-autotest",
-        "ngodinginindonesia.go-comments"
-    ]
+  "recommendations": [
+    "golang.go",
+    "windmilleng.vscode-go-autotest",
+    "ngodinginindonesia.go-comments"
+  ]
 }
