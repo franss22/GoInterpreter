@@ -72,6 +72,15 @@ func (l *Lexer) NextToken() token.Token {
 		tok = newToken(token.LT, l.char)
 	case '>':
 		tok = newToken(token.GT, l.char)
+	case '[':
+		tok = newToken(token.LBRACKET, l.char)
+	case ']':
+		tok = newToken(token.RBRACKET, l.char)
+	case ':':
+		tok = newToken(token.COLON, l.char)
+	case '"':
+		tok.Type = token.STRING
+		tok.Literal = l.readString()
 
 	case 0:
 		tok.Literal = ""
@@ -92,6 +101,16 @@ func (l *Lexer) NextToken() token.Token {
 	}
 	l.readChar()
 	return tok
+}
+func (l *Lexer) readString() string {
+	start := l.position + 1
+	for {
+		l.readChar()
+		if l.char == '"' || l.char == 0 {
+			break
+		}
+	}
+	return l.input[start:l.position]
 }
 
 func (l *Lexer) decideTwoCharToken(nextChar byte, tType token.TokenType) (token.Token, bool) {

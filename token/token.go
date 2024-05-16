@@ -31,8 +31,9 @@ const (
 	EOF     = "EOF"
 
 	// Identifiers + literals
-	IDENT = "IDENT" // add, foobar, x, y, ...
-	INT   = "INT"
+	IDENT  = "IDENT" // add, foobar, x, y, ...
+	INT    = "INT"
+	STRING = "STRING"
 
 	// 2-ary Operators
 	ASSIGN   = "="
@@ -58,6 +59,10 @@ const (
 	RPAREN    = ")"
 	LBRACE    = "{"
 	RBRACE    = "}"
+	QUOTE     = "\""
+	LBRACKET  = "["
+	RBRACKET  = "]"
+	COLON     = ":"
 
 	// Keywords
 	FUNCTION = "FUNCTION"
