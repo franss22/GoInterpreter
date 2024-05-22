@@ -42,12 +42,12 @@ func (l *Lexer) NextToken() token.Token {
 		} else {
 			tok = newToken(token.BANG, l.char)
 		}
-	case '|':
-		if t, ok := l.decideTwoCharToken('|', token.OR); ok {
-			tok = t
-		} else {
-			tok = newToken(token.ILLEGAL, l.char)
-		}
+	// case '|':
+	// 	if t, ok := l.decideTwoCharToken('|', token.OR); ok {
+	// 		tok = t
+	// 	} else {
+	// 		tok = newToken(token.ILLEGAL, l.char)
+	// 	}
 	case ';':
 		tok = newToken(token.SEMICOLON, l.char)
 	case '(':
@@ -151,7 +151,7 @@ func (l *Lexer) readNumber() string {
 }
 
 func isDigit(char byte) bool {
-	return '0' <= char && char <= '9' || 'A' <= char && char <= 'Z' || char == '_'
+	return '0' <= char && char <= '9'
 }
 
 func newToken(tokenType token.TokenType, char byte) token.Token {
